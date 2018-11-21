@@ -6,7 +6,7 @@ import tkinter
 import os
 from PIL import ImageTk, Image 
 import glob 
-import cv2 
+import cv2
 image_folder = 'human-baseline/images-128'
 gt_file = 'human-baseline/coco_text_test.txt'
 rest_file = 'human-baseline/results-img2sent.txt'
@@ -66,7 +66,10 @@ def onClick():
 		for i in range(5):
 			gt_temp = gt_ + "_" + str(i)
 			gt.insert('end', gt_dict[gt_temp])
-		rt.insert('end', retrived_dict[gt_])
+		temp_ret_res = retrived_dict[gt_]
+		print(temp_ret_res)
+		for i in temp_ret_res:
+			rt.insert('end', i)
 		counter.set(counter.get() + 1)
 	else:
 		final_ = tkinter.Label(text="Done. Stop Hitting that button now!").place(x=350,y=300)
